@@ -10,15 +10,18 @@ score = 0
 root = Tk()
 root.title("Word_Jumble_Game")
 root.geometry("600x400")
+root.iconbitmap("C:/Users/msert/Downloads/python_18894.ico")
+root_label = Label(root, text="press enter to start", font=("Helvatica", 20))
+root_label.pack(pady=10)
 root_word_label = Label(root, text="", font=("Helvatica", 50))
 root_word_label.pack(pady=20)
 
 
 # function for initiliaze functions
-def start():
+def start(event=""):
     if seconds == 60:
         countdown()
-        answer()
+        shuffler()
 
     else:
         answer()
@@ -95,5 +98,7 @@ root_score_label.pack(pady=10)
 # time label
 root_time_label = Label(root, text="time:", font=("Helvatica", 20))
 root_time_label.pack(pady=10)
+# key binding to start
+root.bind('<Return>',start)
 # loop for window stay open
 root.mainloop()
